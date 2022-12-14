@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ProximiioMapLibre
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AVFoundation
 import Alamofire
 import Combine
@@ -19,6 +20,7 @@ import SwiftyJSON
 import SystemConfiguration
 import UIKit
 import _Concurrency
+import _StringProcessing
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class PIODatabase : ObjectiveC.NSObject {
   @objc public class func sharedInstance() -> ProximiioMapLibre.PIODatabase
   @objc public func amenities() -> [Proximiio.ProximiioAmenity]
@@ -606,6 +608,7 @@ extension ProximiioMapLibre.PIONavigation {
   public enum Action {
     case onProcess(node: ProximiioMapLibre.PIORouteNode?)
     case onRequestReRoute
+    case onFinished
   }
 }
 extension ProximiioMapLibre.PIONavigation {
